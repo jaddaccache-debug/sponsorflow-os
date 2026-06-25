@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SponsorFlow OS Schema",
+  "type": "object",
+  "properties": {
+    "sponsors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "company_name",
+          "status",
+          "owner"
+        ],
+        "properties": {
+          "sponsor_id": {
+            "type": "string"
+          },
+          "company_name": {
+            "type": "string"
+          },
+          "sector": {
+            "type": "string"
+          },
+          "priority": {
+            "type": "string",
+            "enum": [
+              "low",
+              "medium",
+              "high",
+              "strategic"
+            ]
+          },
+          "fit_score": {
+            "type": "number",
+            "minimum": 1,
+            "maximum": 10
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "new",
+              "contacted",
+              "interested",
+              "negotiating",
+              "committed",
+              "rejected",
+              "dormant"
+            ]
+          },
+          "package_target": {
+            "type": "string"
+          },
+          "cash_value": {
+            "type": "number"
+          },
+          "in_kind_value": {
+            "type": "number"
+          },
+          "owner": {
+            "type": "string"
+          },
+          "next_action": {
+            "type": "string"
+          },
+          "next_action_date": {
+            "type": "string",
+            "format": "date"
+          },
+          "notes": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
