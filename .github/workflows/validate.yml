@@ -1,0 +1,25 @@
+name: Validate Repository
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check required files
+        run: |
+          test -f README.md
+          test -f LICENSE
+          test -f CONTRIBUTING.md
+          test -f SECURITY.md
+          test -f GOVERNANCE.md
+          test -f CODE_OF_CONDUCT.md
+          test -f docs/ROADMAP.md
+          test -f docs/DATA_MODEL.md
+          test -f docs/OPERATING_SYSTEM.md
+          test -f docs/SPONSORSHIP_PLAYBOOK.md
+          test -f src/sponsorflow.schema.json
